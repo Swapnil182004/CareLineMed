@@ -32,6 +32,7 @@ import 'authentication/onbording_screen.dart';
 import 'bottombarpro_screen.dart';
 import 'category_screen.dart';
 import 'home_search_screen.dart';
+import 'our_product.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -76,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     });
 
     tabController = TabController(
-    length: 6,
+    length: 4,
     vsync: this,
     );
 
@@ -513,22 +514,30 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     delegate: _StickyTabBarDelegate(
       child: Material(
         color: const Color(0xFFF8F9FD),
-        child: Container(
-          height: 90,
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-          child: TabBar(
-            controller: tabController,
-            isScrollable: true,
-            indicatorColor: Colors.transparent,
-            labelPadding: const EdgeInsets.symmetric(horizontal: 8),
-            tabs: [
-              CategoryTab(icon: Icons.grid_view, title: "All", index: 0, controller: tabController),
-              CategoryTab(icon: Icons.receipt, title: "Prescription", index: 1, controller: tabController),
-              CategoryTab(icon: Icons.child_care, title: "Baby Care", index: 2, controller: tabController),
-              CategoryTab(icon: Icons.favorite, title: "Wellness", index: 3, controller: tabController),
-              CategoryTab(icon: Icons.local_mall_outlined, title: "Our Product", index: 4, controller: tabController),
-              CategoryTab(icon: Icons.face, title: "Skincare", index: 5, controller: tabController),
-            ],
+        child: Center(
+          child: Container(
+            height: 105,
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            child: TabBar(
+              controller: tabController,
+              isScrollable: true,
+              tabAlignment: TabAlignment.center,
+              indicatorColor: Colors.transparent,
+              labelPadding: const EdgeInsets.symmetric(horizontal: 10),
+              
+              onTap: (index) {
+                if (index == 3) {
+                  Get.to(() => const OurProduct());
+                }
+              },
+              
+              tabs: [
+                CategoryTab(icon: Icons.grid_view, title: "All", index: 0, controller: tabController),
+                CategoryTab(icon: Icons.receipt, title: "Prescription", index: 1, controller: tabController),
+                CategoryTab(icon: Icons.favorite, title: "Healthcamp", index: 2, controller: tabController),
+                CategoryTab(icon: Icons.local_mall_outlined, title: "Our Product", index: 3, controller: tabController),
+              ],
+            ),
           ),
         ),
       ),

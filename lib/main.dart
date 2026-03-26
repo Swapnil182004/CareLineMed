@@ -14,6 +14,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
+import '';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
@@ -63,6 +65,7 @@ void main() async {
             ? Locale(getData.read("lan2"), getData.read("lan1"))
             : Locale('en_US', 'en_US'),
         initialRoute: Routes.initial,
+        // home: OurProduct(),
         getPages: getPages,
       ),
     ),

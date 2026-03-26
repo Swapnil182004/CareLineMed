@@ -23,7 +23,7 @@ class CategoryTab extends StatelessWidget {
         final bool isSelected = controller.index == index;
 
         return Tab(
-          height: 80, // Fixes the vertical overflow constraint
+          height: 90, // Fixes the vertical overflow constraint
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -35,7 +35,7 @@ class CategoryTab extends StatelessWidget {
                 ),
                 child: Icon(
                   icon,
-                  size: 22,
+                  size: 28,
                   color: isSelected ? primeryColor : Colors.black87,
                 ),
               ),
@@ -43,7 +43,7 @@ class CategoryTab extends StatelessWidget {
               Text(
                 title,
                 style: TextStyle(
-                  fontSize: 12,
+                  fontSize: 14,
                   color: isSelected ? primeryColor : Colors.black,
                   fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
                 ),
